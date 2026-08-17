@@ -1,12 +1,10 @@
-import Name from "./name.jsx";
-import Email from "./email.jsx";
-import Phone from "./phone.jsx";
+import SingleEntry from "../singleEntry.jsx";
 
-function GeneralInfo() {
+function GeneralInfo({previewEnabled}) {
     return <>
-    <Name/>
-    <Email/>
-    <Phone/>
+    <SingleEntry previewEnabled={previewEnabled} fieldName="Name" />
+    <SingleEntry previewEnabled={previewEnabled} fieldName="Email" />
+    <SingleEntry previewEnabled={previewEnabled} fieldName="Phone" />
     </>;
 }
 

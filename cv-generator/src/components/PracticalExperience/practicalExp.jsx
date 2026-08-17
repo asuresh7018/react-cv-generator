@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-function PracticalExperience() {
+function PracticalExperience( {previewEnabled} ) {
     const experienceArray = [];
     const [experience, setExperience] = useState(experienceArray);
+
+    const displayButtons = (previewEnabled === true ? {display: "none"} : {});
 
     function displayExperience(exp) {
         if (exp.isEditable) {
@@ -13,7 +15,7 @@ function PracticalExperience() {
                 <input type="text" name="dates" id={"expDatesInput-" + exp.key} defaultValue={exp.dates} />
                 <label htmlFor="description" id={"expText-" + exp.key}>Description: </label>
                 <input type="text" name="description" id={"expTextInput-" + exp.key} defaultValue={exp.text} />
-                <button onClick={() => {updateExperience(exp.key)}}>Submit</button>
+                <button style={displayButtons} onClick={() => {updateExperience(exp.key)}}>Submit</button>
                 </div>;
         }
         else {
@@ -21,7 +23,7 @@ function PracticalExperience() {
                 <div className="experienceTitle"><h3>{exp.title}</h3></div>
                 <div className="experienceDates">{exp.dates}</div>
                 <div className="experienceText">{exp.text}</div>
-                <button onClick={() => {handleAllowEdit(exp.key)}}>Edit</button>
+                <button style={displayButtons} onClick={() => {handleAllowEdit(exp.key)}}>Edit</button>
                 </div>;
         }
     }
@@ -45,13 +47,13 @@ function PracticalExperience() {
 
     if (experience.length === 0) {
         return <>
-        <button onClick={addExperience}>Add Work Experience</button>
+        <button style={displayButtons} onClick={addExperience}>Add Work Experience</button>
         No experience added yet
         </>
     }
 
     return <>
-    <button onClick={addExperience}>Add Work Experience</button>
+    <button style={displayButtons} onClick={addExperience}>Add Work Experience</button>
     {experience.map((exp) => displayExperience(exp))}
     </>;
 }
