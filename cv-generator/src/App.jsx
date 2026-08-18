@@ -20,8 +20,10 @@ function App() {
   return (
     <>
     <GeneralInfo previewEnabled={previewEnabled}/>
-    <SingleEntry previewEnabled={previewEnabled} fieldName="Name" />
     <div className="body">
+      <div className="name">
+        <SingleEntry previewEnabled={previewEnabled} fieldName="Name" hideFieldNameOnPreview={true} />
+      </div>
       <Heading name="Summary Statement" />
       <SingleEntry previewEnabled={previewEnabled} fieldName="" />
       <Heading name="Practical Experience" />

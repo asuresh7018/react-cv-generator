@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SingleEntry( {previewEnabled, fieldName} ) {
+function SingleEntry( {previewEnabled, fieldName, hideFieldNameOnPreview} ) {
     const [name, setName] = useState({text: "", isEditable: true});
     const displayButtons = (previewEnabled === true ? {display: "none"} : {});
 
@@ -24,7 +24,7 @@ function SingleEntry( {previewEnabled, fieldName} ) {
     }
     else {
         return <div id="nameDiv">
-            <div id={"FieldName-"+fieldName}>{fieldName === "" ? "" : fieldName + ": "}</div>
+            {hideFieldNameOnPreview ? "": <div id={"FieldName-"+fieldName}>{fieldName === "" ? "" : fieldName + ": "}</div>}
             <div id={"FieldValue"+fieldName}>{name.text}</div>
             <button id="edit" style={displayButtons} onClick={allowEdit}>Edit</button>
         </div>;
