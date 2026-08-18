@@ -2,9 +2,10 @@ import SingleEntry from "../singleEntry.jsx";
 
 function GeneralInfo({previewEnabled}) {
     return <>
-    <SingleEntry previewEnabled={previewEnabled} fieldName="Name" />
+    <div className="header">
     <SingleEntry previewEnabled={previewEnabled} fieldName="Email" />
     <SingleEntry previewEnabled={previewEnabled} fieldName="Phone" />
+    </div>
     </>;
 }
 

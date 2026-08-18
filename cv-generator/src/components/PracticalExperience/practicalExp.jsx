@@ -42,13 +42,12 @@ function PracticalExperience( {previewEnabled} ) {
     function addExperience() {
         const newItem = {key: crypto.randomUUID(), isEditable: true};
         setExperience([...experience, newItem]);
-        console.log(experience);
     }
 
     if (experience.length === 0) {
         return <>
         <button style={displayButtons} onClick={addExperience}>Add Work Experience</button>
-        No experience added yet
+        <div>No experience added yet</div>
         </>
     }
 

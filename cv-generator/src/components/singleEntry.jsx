@@ -17,14 +17,14 @@ function SingleEntry( {previewEnabled, fieldName} ) {
 
     if (name.isEditable) {
     return <div id={"div-" + fieldName}>
-        <label htmlFor={fieldName} id={"FieldName-"+fieldName}>{fieldName}: </label>
+        <label htmlFor={fieldName} id={"FieldName-"+fieldName}>{fieldName === "" ? "" : fieldName + ": "}</label>
         <input type="text" name={fieldName} id={"FieldInput-"+fieldName} defaultValue={name.text} />
         <button id={"submit"+fieldName} style={displayButtons} onClick={handleUpdateName}>Submit</button>
     </div>;
     }
     else {
         return <div id="nameDiv">
-            <div id={"FieldName-"+fieldName}>{fieldName}: </div>
+            <div id={"FieldName-"+fieldName}>{fieldName === "" ? "" : fieldName + ": "}</div>
             <div id={"FieldValue"+fieldName}>{name.text}</div>
             <button id="edit" style={displayButtons} onClick={allowEdit}>Edit</button>
         </div>;

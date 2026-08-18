@@ -6,6 +6,9 @@ import GeneralInfo from './components/GeneralInfo/generalInfo.jsx'
 import PracticalExperience from './components/PracticalExperience/practicalExp.jsx'
 import Preview from './components/preview.jsx'
 import './App.css'
+import SingleEntry from './components/singleEntry.jsx'
+import Heading from './components/heading.jsx'
+import Education from './components/Education/education.jsx'
 
 function App() {
   const [previewEnabled, setPreviewEnabled] = useState(false);
@@ -17,8 +20,16 @@ function App() {
   return (
     <>
     <GeneralInfo previewEnabled={previewEnabled}/>
-    <PracticalExperience previewEnabled={previewEnabled} />
-    <Preview toggleEdit={toggleSetPreviewable} />
+    <SingleEntry previewEnabled={previewEnabled} fieldName="Name" />
+    <div className="body">
+      <Heading name="Summary Statement" />
+      <SingleEntry previewEnabled={previewEnabled} fieldName="" />
+      <Heading name="Practical Experience" />
+      <PracticalExperience previewEnabled={previewEnabled} />
+      <Heading name="Education" />
+      <Education previewEnabled={previewEnabled} />
+      <Preview toggleEdit={toggleSetPreviewable} />
+    </div>
     </>
   )
 }
