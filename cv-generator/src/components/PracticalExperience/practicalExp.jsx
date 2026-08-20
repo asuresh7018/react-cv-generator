@@ -8,7 +8,7 @@ function PracticalExperience( {previewEnabled} ) {
 
     function displayExperience(exp) {
         if (exp.isEditable) {
-            return <div key={exp.key}>
+            return <div className="experienceTemplate" key={exp.key}>
                 <label htmlFor="title" id={"expTitle-" + exp.key}>Position Name: </label>
                 <input type="text" name="title" id={"expTitleInput-" + exp.key} defaultValue={exp.title} />
                 <label htmlFor="dates" id={"expDates-" + exp.key}>Position Dates: </label>
@@ -19,12 +19,13 @@ function PracticalExperience( {previewEnabled} ) {
                 </div>;
         }
         else {
-            return <div key={exp.key}>
-                <div className="experienceTitle"><h3>{exp.title}</h3></div>
+            return <><div className="experienceSection" key={exp.key}>
+                <div className="experienceTitle">{exp.title}</div>
                 <div className="experienceDates">{exp.dates}</div>
                 <div className="experienceText">{exp.text}</div>
+                </div>
                 <button style={displayButtons} onClick={() => {handleAllowEdit(exp.key)}}>Edit</button>
-                </div>;
+                </>;
         }
     }
 

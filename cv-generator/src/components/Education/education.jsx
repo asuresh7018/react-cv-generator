@@ -16,11 +16,12 @@ function Education( {previewEnabled} ) {
                 </div>;
         }
         else {
-            return <div key={educ.key}>
-                <div className="educationTitle"><h3>{educ.title}</h3></div>
+            return <><div className="educationSection" key={educ.key}>
+                <div className="educationTitle">{educ.title}</div>
                 <div className="educationDates">{educ.dates}</div>
+                </div>
                 <button style={displayButtons} onClick={() => {handleAllowEdit(educ.key)}}>Edit</button>
-                </div>;
+                </>;
         }
     }
 
